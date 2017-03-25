@@ -7,7 +7,7 @@ alias uuidgen='docker run --rm andyneff/uuidgen uuidgen'
 
 # Docker stuff
 alias dockerclear='unset DOCKER_TLS_VERIFY && unset DOCKER_HOST && unset DOCKER_CERT_PATH && unset DOCKER_MACHINE_NAME'
-alias proxycreate="docker run -d --restart=always -v /var/run/docker.sock:/tmp/docker.sock:ro -v ~/.dinghy/certs:/etc/nginx/certs -p 80:80 -p 443:443 -p 19322:1932    2/udp -e DNS_IP=127.0.0.1 -e CONTAINER_NAME=http-proxy --name http-proxy codekitchen/dinghy-http-proxy"
+alias proxycreate="docker run -d --restart=always -v /var/run/docker.sock:/tmp/docker.sock:ro -v $HOME/.dinghy/certs:/etc/nginx/certs -p 80:80 -p 443:443 -p 19322:1932    2/udp -e DNS_IP=127.0.0.1 -e CONTAINER_NAME=http-proxy --name http-proxy codekitchen/dinghy-http-proxy"
 alias proxyup="docker start http-proxy"
 alias proxydown="docker stop http-proxy"
 alias ctop="docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
@@ -38,12 +38,12 @@ alias ....='cd ../..'
 alias ......='cd ../../..'
 
 # Selenium
-alias selenium="java -jar ~/code/selenium/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=$HOME/code/selenium/drivers/chromedriver"
+alias selenium="java -jar $HOME/code/selenium/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=$HOME/code/selenium/drivers/chromedriver"
 
 # General command line laziness
 alias c="clear"
-alias editzsh='vim ~/.zshrc'
-alias reloadzsh='. ~/.zshrc'
+alias editzsh='vim $HOME/.zshrc'
+alias reloadzsh='. $HOME/.zshrc'
 alias fhere="find . -name "
 alias findhere="find . -name "
 alias ps="ps aux"
