@@ -1,0 +1,23 @@
+[user]
+	name = brunty
+	email = matt@mfyu.co.uk
+	signingkey = E11C47DD
+[core]
+	excludesfile = $HOME/.gitignore_global
+[push]
+	default = simple
+[pull]
+	rebase = true
+[color]
+    ui = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[github]
+	user = Brunty
+[branch]
+	autosetupmerge = always
+[alias]
+	yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative

@@ -1,0 +1,102 @@
+# Dokku
+alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
+
+alias godeps="godep"
+
+alias uuidgen='docker run --rm andyneff/uuidgen uuidgen'
+
+# Docker stuff
+alias dockerclear='unset DOCKER_TLS_VERIFY && unset DOCKER_HOST && unset DOCKER_CERT_PATH && unset DOCKER_MACHINE_NAME'
+alias proxycreate="docker run -d --restart=always -v /var/run/docker.sock:/tmp/docker.sock:ro -v ~/.dinghy/certs:/etc/nginx/certs -p 80:80 -p 443:443 -p 19322:1932    2/udp -e DNS_IP=127.0.0.1 -e CONTAINER_NAME=http-proxy --name http-proxy codekitchen/dinghy-http-proxy"
+alias proxyup="docker start http-proxy"
+alias proxydown="docker stop http-proxy"
+alias ctop="docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
+
+# Docker composer stuff
+alias composer='docker run -it --rm --net=host -v $HOME:$HOME -e COMPOSER_HOME="$HOME/.composer" -u $UID -w `pwd` composer/composer:master-alpine'
+alias dex='docker exec -it'
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+
+# Vagrant aliases
+alias upandin='vagrant up && vagrant ssh'
+alias vup='vagrant up'
+alias vreboot='vagrant halt && vagrant up'
+alias vboot='vagrant up'
+alias vdown='vagrant halt'
+alias vhalt='vagrant halt'
+alias vssh='vagrant ssh'
+alias vgs='vagrant global-status --prune'
+alias vrecreate='vagrant destroy && echo "\n********************\nRe-creating Vagrant Box\n********************\n" && vagrant up'
+alias vhaltall="vagrant global-status | awk '/virtualbox running/{ print $1 }' | xargs vagrant halt"
+alias vfuckyou='vhaltall'
+
+# Traversal & Directory navigation
+alias ~='cd ~'
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+
+# Selenium
+alias selenium="java -jar ~/code/selenium/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=/Users/brunty/code/selenium/drivers/chromedriver"
+
+# General command line laziness
+alias c="clear"
+alias editzsh='vim ~/.zshrc'
+alias reloadzsh='. ~/.zshrc'
+alias fhere="find . -name "
+alias findhere="find . -name "
+alias ps="ps aux"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias mkdir="mkdir -pv"
+alias myip="curl http://ipecho.net/plain; echo"
+
+# Lots of these are repeated due to old habits
+alias l='ls -lah'
+alias lah='ls -lah'
+alias lh='ls -lh'
+alias nano='vim'
+alias sublime="subl"
+
+# sudo stuff
+# > do the thing
+# > permission denied
+# > fucking do the thing
+# > thing done
+alias fucking='sudo'
+
+# This next one will run the previous command with sudo in front of it
+alias please='sudo $(fc -ln -1)'
+
+# Git stuff
+alias gaa='git add .'
+alias gc='git commit -mS'
+alias gcs='git commit -S'
+alias gp='git push'
+alias gpush='git push'
+alias gpull='git pull'
+alias gpuo='git push -u origin'
+alias gs='git status'
+alias gf='git fetch --all'
+alias gc-='git checkout -'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias such=git
+alias very=git
+alias wow='git status'
+
+# Misc other apps I usually have installed
+alias lipsum='lorem-ipsum'
+
+# Composer updates
+alias csu='composer self-update'
+alias cgu='composer global update'
+
+# Sites & Projects
+alias htdocs="cd /Applications/MAMP/htdocs"
+
+# Server / VPS stuff
+alias earth='ssh 46.101.46.26 -l brunty'
+alias earthroot='ssh 46.101.46.26 -l root'
+
+export PATH="/usr/local/opt/ab/bin:$PATH"
