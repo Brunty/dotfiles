@@ -38,7 +38,7 @@ alias ....='cd ../..'
 alias ......='cd ../../..'
 
 # Selenium
-alias selenium="java -jar ~/code/selenium/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=/Users/brunty/code/selenium/drivers/chromedriver"
+alias selenium="java -jar ~/code/selenium/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=$HOME/code/selenium/drivers/chromedriver"
 
 # General command line laziness
 alias c="clear"
