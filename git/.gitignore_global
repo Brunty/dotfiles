@@ -1,4 +1,52 @@
 *~
-.DS_Store
-.idea
+.buildpath
+.project
+.settings
+.vagrant
 
+
+
+#########################
+# OS X
+#########################
+.DS_Store
+.thumbs
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+
+#########################
+# Windows
+#########################
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+
+#########################
+# Composer PHAR
+#########################
+/composer.phar
+
+
+#########################
+# PhpStorm Related:
+#########################
+.idea/
+
+# if you remove the above rule, at least ignore user-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# and these sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
