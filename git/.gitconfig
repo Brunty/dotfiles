@@ -3,7 +3,7 @@
 	email = matt@mfyu.co.uk
 	signingkey = E11C47DD
 [core]
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [pull]
