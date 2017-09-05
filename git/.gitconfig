@@ -1,11 +1,11 @@
 [user]
-	name = brunty
+	name = Matt Brunt
 	email = matt@mfyu.co.uk
 	signingkey = E11C47DD
 [core]
 	excludesfile = ~/.gitignore_global
 [push]
-	default = simple
+	default = current
 [pull]
 	rebase = true
 [color]
@@ -21,3 +21,17 @@
 [alias]
 	yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	dokku = push dokku master
+	deploy = push dokku master
+	undo = reset --soft HEAD^
+    move = "!f() { \
+        MESSAGE=$(git log -1 HEAD --pretty=format:%s); \
+        git reset HEAD~ --soft; \
+        git stash; \
+        git checkout $1; \
+        git stash pop; \
+        git add .; \
+        git commit -m $MESSAGE; \
+    }; f"
+[commit]
+	gpgsign = true

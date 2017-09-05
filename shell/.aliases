@@ -1,3 +1,5 @@
+alias nproc="sysctl -n hw.ncpu"
+
 # Dokku
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
@@ -7,16 +9,19 @@ alias uuidgen='docker run --rm andyneff/uuidgen uuidgen'
 
 # Docker stuff
 alias dockerclear='unset DOCKER_TLS_VERIFY && unset DOCKER_HOST && unset DOCKER_CERT_PATH && unset DOCKER_MACHINE_NAME'
-alias proxycreate="docker run -d --restart=always -v /var/run/docker.sock:/tmp/docker.sock:ro -v $HOME/.dinghy/certs:/etc/nginx/certs -p 80:80 -p 443:443 -p 19322:1932    2/udp -e DNS_IP=127.0.0.1 -e CONTAINER_NAME=http-proxy --name http-proxy codekitchen/dinghy-http-proxy"
+alias proxycreate="docker run -d --restart=always -v /var/run/docker.sock:/tmp/docker.sock:ro -v $HOME/.dinghy/certs:/etc/nginx/certs -p 80:80 -p 443:443 -p 19322:19322/udp -e DNS_IP=127.0.0.1 -e CONTAINER_NAME=http-proxy --name http-proxy codekitchen/dinghy-http-proxy"
 alias proxyup="docker start http-proxy"
 alias proxydown="docker stop http-proxy"
 alias ctop="docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 
-# Docker composer stuff
-alias composer='docker run -it --rm --net=host -v $HOME:$HOME -e COMPOSER_HOME="$HOME/.composer" -u $UID -w `pwd` composer/composer:master-alpine'
+# Docker composer & php stuff
+alias compdocker='docker run -it --rm --net=host -v $HOME:$HOME -e COMPOSER_HOME="$HOME/.composer" -u $UID -w `pwd` composer/composer:master-alpine'
 alias dex='docker exec -it'
 alias dps="docker ps"
 alias dpsa="docker ps -a"
+alias php72='docker run --rm -it -v $HOME:$HOME -e COMPOSER_HOME="$HOME/.composer" -u $UID -w `pwd` colinodell/php-7.2 php'
+alias artisan="php artisan"
+alias console="php bin/console"
 
 # Vagrant aliases
 alias upandin='vagrant up && vagrant ssh'
@@ -69,6 +74,8 @@ alias fucking='sudo'
 alias please='sudo $(fc -ln -1)'
 
 # Git stuff
+alias nah='git reset --hard;git clean -df'
+
 alias gaa='git add .'
 alias gc='git commit -mS'
 alias gcs='git commit -S'
@@ -84,6 +91,11 @@ alias gcm='git checkout master'
 alias such=git
 alias very=git
 alias wow='git status'
+
+alias g:a='git add -p'
+alias g:c='git commit -mS'
+alias g:p='git push'
+alias g:s='git status'
 
 # Misc other apps I usually have installed
 alias lipsum='lorem-ipsum'
